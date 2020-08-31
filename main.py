@@ -58,7 +58,7 @@ time_space = video_length/len(imagePrediction)
 time = []
 velocity = []
 for i in range(len(imagePrediction)):
-    if i*time_space > startT and i*time_space < endT and imagePrediction[1] != -1:
+    if i*time_space > startT and i*time_space < endT and imagePrediction[i] != -1:
         time.append(i*time_space - startT)
         velocity.append(imagePrediction[i])
 
