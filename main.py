@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # define time bounds and crop frame
-video_length = 62
-startT, endT = 2, 55
+video_length = 94
+startT, endT = 2, 93
 y1, y2, x1, x2 = 1006,1052,1750,1832
 frames_per_inter = 5
 
@@ -17,7 +17,7 @@ frames_per_inter = 5
 custom_config = r'--oem 3 --psm 6 -c tessedit_char_whitelist=0123456789'
 
 # load video
-vidcap = cv2.VideoCapture('Forza 8.mp4')
+vidcap = cv2.VideoCapture('Forza 7.mp4')
 success,image = vidcap.read()
 count = 0
 
@@ -49,8 +49,6 @@ while success:
       success,image = vidcap.read()
   count += 1
 
-plt.scatter(list(range(len(imagePrediction))), imagePrediction)
-plt.show()
 
 time_space = video_length/len(imagePrediction)
 
@@ -62,12 +60,6 @@ for i in range(len(imagePrediction)):
         time.append(i*time_space - startT)
         velocity.append(imagePrediction[i])
 
-#plot data
-plt.title('velocity (km/h) vs time (s)')
-plt.xlabel('time (s)')
-plt.ylabel('velocity (km/h)')
-plt.scatter(time, velocity)
-plt.show()
 
 #export data to file
 f = open('labdata.csv', 'w')
