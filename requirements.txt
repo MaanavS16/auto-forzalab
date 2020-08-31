@@ -1,0 +1,4 @@
+pytesseract
+matplotlib
+numpy
+opencv-python
